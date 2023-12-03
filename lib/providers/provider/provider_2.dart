@@ -1,11 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final provider1 = Provider<Provider3>((ref) {
-  return Provider3();
+final provider2 = Provider<Provider4>((ref) {
+  return Provider4();
 });
 
-class Provider3  {
-  Provider3();
+class Provider4  {
+  Provider4();
 
   int count = 0;
 

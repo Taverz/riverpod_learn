@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final changeNotify1 = ChangeNotifierProvider<Provider1>((ref) {
-  return Provider1();
+final changeNotify2 = ChangeNotifierProvider<Provider22>((ref) {
+  return Provider22();
 });
 
-class Provider1 extends ChangeNotifier {
-  Provider1();
+class Provider22 extends ChangeNotifier {
+  Provider22();
 
   int count = 0;
 

@@ -16,3 +16,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final currentQuestion = Provider<AsyncValue<Object>>((ref) {
   throw UnimplementedError();
 });
+
+// /// A provider that asynchronously exposes the current user
+// final userProvider = StreamProvider<User>((_) async* {
+//   // fetch the user
+// });
+//  final AsyncValue<User> user = ref.watch(userProvider);

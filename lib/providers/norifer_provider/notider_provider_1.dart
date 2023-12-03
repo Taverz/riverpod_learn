@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// We are using [StateNotifierProvider] here as a `List<Todo>` is a complex
 /// object, with advanced business logic like how to edit a todo.
 /// 
-// final todoListProvider = NotifierProvider<Object, List<Object>>(Object.new);
+final todoListProvider = NotifierProvider<TodoList, List<Todo>>(TodoList.new);
 
 class Todo {
   const Todo({
