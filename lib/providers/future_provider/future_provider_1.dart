@@ -1,12 +1,18 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final currentQuestion = FutureProvider<int>((ref) {
+final currentQuestionFututre = FutureProvider<int>((ref) async {
+  final classData =
+      CountFutureProvider((ref) => Future.delayed(const Duration(seconds: 1)));
+  await classData.plus();
+  return classData.count;
+});
+
+class CountFutureProvider extends FutureProvider {
+  CountFutureProvider(super.createFn);
+
   int count = 0;
 
-  void plus() async {
+  Future<void> plus() async {
     count++;
   }
-
-  plus();
-  return count;
-});
+}

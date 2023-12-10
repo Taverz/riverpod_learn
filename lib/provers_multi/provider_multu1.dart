@@ -34,3 +34,25 @@ final futureNultiProvider_AutoDispose1 = FutureProvider.autoDispose<Object>(
     return '';
   },
 );
+
+
+
+final abonnemenOuttNotifierProvider =
+    StateNotifierProvider<AbonnementNotifier, AbonnementState>((ref) {
+  return AbonnementNotifier(
+    ref.watch(serviceAbonnementOutProvider),
+  );
+});
+class AbonnementNotifier extends StateNotifier<AbonnementState> {
+  final ServiceAbonnement _serviceAbonnement;
+  AbonnementNotifier(
+    this._serviceAbonnement,
+  ) : super(const AbonnementState.loading());
+}
+
+@freezed
+sealed class AbonnementState with _$AbonnementState {
+  const factory AbonnementState.data(InfoUserToBraclet abonnementList) = _Data;
+  const factory AbonnementState.loading() = _Loading;
+  const factory AbonnementState.error([String? message]) = _Error;
+}

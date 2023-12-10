@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
 // Finally, we are using StateNotifierProvider to allow the UI to interact with
 // our TodosNotifier class.
 final todosProvider = StateNotifierProvider<TodosNotifier, List<Todo>>((ref) {
   return TodosNotifier();
 });
 
+final countProvider = StateNotifierProvider<CountStateNotifier, int>((ref) {
+  return CountStateNotifier(0);
+});
 
+class CountStateNotifier extends StateNotifier<int> {
+  CountStateNotifier(super.state);
+
+  plus() {
+    state = state + 1;
+  }
+}
 
 // The state of our StateNotifier should be immutable.
 // We could also use packages like Freezed to help with the implementation.
 @immutable
 class Todo {
-  const Todo({required this.id, required this.description, required this.completed});
+  const Todo(
+      {required this.id, required this.description, required this.completed});
 
   // All properties should be `final` on our class.
   final String id;
@@ -38,7 +48,7 @@ class Todo {
 // The public methods on this class will be what allow the UI to modify the state.
 class TodosNotifier extends StateNotifier<List<Todo>> {
   // We initialize the list of todos to an empty list
-  TodosNotifier(): super([]);
+  TodosNotifier() : super([]);
 
   // Let's allow the UI to add todos.
   void addTodo(Todo todo) {

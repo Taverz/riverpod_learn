@@ -15,6 +15,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// the value since it's just enum.
 final todoListFilter = StateProvider((_) => TodoListFilter.all);
 
+final countStateProvider = StateProvider((_) => 0);
+
+
 /// The different ways to filter the list of todos
 enum TodoListFilter {
   all,

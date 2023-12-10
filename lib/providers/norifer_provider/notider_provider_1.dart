@@ -6,7 +6,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 /// object, with advanced business logic like how to edit a todo.
 /// 
 final todoListProvider = NotifierProvider<TodoList, List<Todo>>(TodoList.new);
+final  countNotifyProvider = NotifierProvider<CountNotityProvdier44, int>(CountNotityProvdier44.new);
 
+final  countNotifyProvider2 = NotifierProvider<CountNotityProvdier44, int>(CountNotityProvdier44.new);
+
+class CountNotityProvdier44 extends Notifier<int> {
+  @override
+  int build() {
+    return 0;
+  }
+
+  plus(){
+    state = state + 1;
+  }
+}
 class Todo {
   const Todo({
     required this.description,
